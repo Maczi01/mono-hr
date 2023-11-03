@@ -19,6 +19,7 @@ export const Input = ({onValueChange}: Props) => {
       type="text"
       value={inputValue}
       onChange={handleInputChange}
+      style={{border: '1px solid black'}}
     />
   );
 };
