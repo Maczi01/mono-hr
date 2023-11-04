@@ -14,7 +14,7 @@ type ButtonProps = {
   color?: ColorType;
 } & ComponentProps<'button'>;
 
-export const Button = ({ label, bgColor, color }: ButtonProps) => {
+export const Button = ({ label, bgColor, color, ...rest }: ButtonProps) => {
   const _bgColor = bgColor ? colors[bgColor] : '';
   const _color = color ? colors[color] : '';
 
@@ -24,6 +24,7 @@ export const Button = ({ label, bgColor, color }: ButtonProps) => {
         backgroundColor: _bgColor,
         color: _color,
       }}
+      {...rest}
     >
       {label}
     </button>
