@@ -22,7 +22,7 @@ export const Primary: Story = {
   args: {
     label: 'Hello',
     bgColor: 'amethyst',
-    color: 'emerald',
+    color: 'primary',
   },
 };
 
@@ -30,6 +30,6 @@ export const Secondary: Story = {
   args: {
     label: 'Hello',
     bgColor: 'peter-river',
-    color: 'amethyst',
+    color: 'secondary',
   },
 };
