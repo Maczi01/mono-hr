@@ -30,7 +30,7 @@ export const Select = ({
     'text-gray-900 text-sm',
     'rounded-full',
     'focus:ring-blue-500 focus:border-blue-500',
-    'block w-full p-2.5',
+    'block w-full p-2 my-2',
     'dark:bg-gray-700 dark:border-gray-600',
     'dark:placeholder-gray-400 dark:text-white',
     'dark:focus:ring-blue-500 dark:focus:border-blue-500',
@@ -43,7 +43,7 @@ export const Select = ({
           Select an option
         </label>
       )}
-      <select id="countries" className={classesSelect}>
+      <select id="countries" className={classesSelect} {...rest}>
         {options.map((option) => (
           <option key={option} value={option}>
             {option}
