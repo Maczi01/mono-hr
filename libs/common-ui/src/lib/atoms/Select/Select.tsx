@@ -5,16 +5,20 @@ type SelectProps = {
   options: string[];
   value: string;
   onChange: (value: string) => void;
-  className?: string;
+  selectClassName?: string;
+  labelClassName?: string;
   label?: string;
-} & ComponentProps<'select'>;
+  id: string;
+} & Omit<ComponentProps<'select'>, 'value' | 'onChange'>;
 
 export const Select = ({
   options,
   value,
   onChange,
-  className,
+  selectClassName,
+  labelClassName,
   label,
+  id,
   ...rest
 }: SelectProps) => {
   const classesLabel = clsx(
@@ -22,7 +26,7 @@ export const Select = ({
     'font-medium',
     'text-gray-900',
     'dark:text-white',
-    className
+    labelClassName
   );
   const classesSelect = clsx(
     'bg-gray-50',
@@ -34,16 +38,22 @@ export const Select = ({
     'dark:bg-gray-700 dark:border-gray-600',
     'dark:placeholder-gray-400 dark:text-white',
     'dark:focus:ring-blue-500 dark:focus:border-blue-500',
-    className
+    selectClassName
   );
   return (
     <div>
       {label && (
-        <label htmlFor="countries" className={classesLabel}>
-          Select an option
+        <label htmlFor={id} className={classesLabel}>
+          {label}
         </label>
       )}
-      <select id="countries" className={classesSelect} {...rest}>
+      <select
+        id={id}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className={classesSelect}
+        {...rest}
+      >
         {options.map((option) => (
           <option key={option} value={option}>
             {option}
