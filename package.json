@@ -27,6 +27,8 @@
   },
   "devDependencies": {
     "@babel/preset-react": "^7.14.5",
+    "@commitlint/cli": "^18.2.0",
+    "@commitlint/config-conventional": "^18.1.0",
     "@nestjs/schematics": "^10.0.1",
     "@nestjs/testing": "^10.0.2",
     "@nx/cypress": "16.5.5",
