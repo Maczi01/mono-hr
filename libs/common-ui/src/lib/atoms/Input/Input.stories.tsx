@@ -14,18 +14,21 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    // label: 'Hello',
+    id: 'input',
   },
 };
 
-export const Primary: Story = {
+export const InputWithLabel: Story = {
   args: {
-    // label: 'Hello',
+    label: 'Input label',
+    id: 'input',
   },
 };
 
-export const Secondary: Story = {
+export const InputWithHelperText: Story = {
   args: {
-    // label: 'Hello',
+    label: 'Input label',
+    id: 'input',
+    helperText: 'This is helper text',
   },
 };
