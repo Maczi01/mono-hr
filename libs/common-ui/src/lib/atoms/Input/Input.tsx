@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ChangeEventHandler, useState } from 'react';
+import { ChangeEvent, ChangeEventHandler, useEffect, useState } from 'react';
 import { clsx } from 'clsx';
 
 type InputProps = {
@@ -28,7 +28,7 @@ export const Input = ({
     onValueChange(event.target.value);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (value !== undefined) {
       setInputValue(value);
     }

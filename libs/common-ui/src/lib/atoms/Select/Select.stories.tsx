@@ -1,0 +1,26 @@
+import type { Meta, StoryObj } from '@storybook/react';
+
+import { Select } from './Select';
+
+const meta = {
+  title: 'UI/Atoms/Select',
+  component: Select,
+  tags: ['autodocs'],
+} satisfies Meta<typeof Select>;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {
+    options: ['Hello', 'World'],
+    value: 'Hello',
+  },
+};
+
+export const SelectWithLabel: Story = {
+  args: {
+    options: ['Hello', 'World'],
+    value: 'Hello',
+    label: 'Select an option',
+  },
+};
