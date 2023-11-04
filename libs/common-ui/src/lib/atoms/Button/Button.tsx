@@ -1,3 +1,5 @@
+import { ComponentProps } from 'react';
+
 const colors = {
   amethyst: '#9b59b6',
   'peter-river': '#3498db',
@@ -6,13 +8,13 @@ const colors = {
 
 type ColorType = keyof typeof colors;
 
-type Props = {
+type ButtonProps = {
   label: string;
   bgColor?: ColorType;
   color?: ColorType;
-};
+} & ComponentProps<'button'>;
 
-export const Button = ({ label, bgColor, color }: Props) => {
+export const Button = ({ label, bgColor, color }: ButtonProps) => {
   const _bgColor = bgColor ? colors[bgColor] : '';
   const _color = color ? colors[color] : '';
 
