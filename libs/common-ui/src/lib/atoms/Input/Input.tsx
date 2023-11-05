@@ -1,47 +1,24 @@
-import { ChangeEvent, ChangeEventHandler, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useId, useState } from 'react';
+import type { ComponentProps, ChangeEventHandler } from 'react';
 import { clsx } from 'clsx';
+import { Label } from '../Label';
 
 type InputProps = {
-  onValueChange: (value: string) => void;
-  id: string;
   label?: string;
   value?: string;
   className?: string;
   helperText?: string;
-} & Omit<React.ComponentProps<'input'>, 'onChange' | 'value'>;
+} & ComponentProps<'input'>;
 
 export const Input = ({
-  onValueChange,
-  id,
   label,
   value,
   className,
   helperText,
+  onChange,
   ...rest
 }: InputProps) => {
-  const [inputValue, setInputValue] = useState(value || '');
-
-  const handleInputChange: ChangeEventHandler<HTMLInputElement> = (
-    event: ChangeEvent<HTMLInputElement>
-  ) => {
-    setInputValue(event.target.value);
-    onValueChange(event.target.value);
-  };
-
-  useEffect(() => {
-    if (value !== undefined) {
-      setInputValue(value);
-    }
-  }, [value]);
-
-  const classesLabel = clsx(
-    'block w-full',
-    'pb-1',
-    'text-sm font-medium text-gray-500',
-    'transition-all duration-200 ease-in-out',
-    'group-focus-within:text-blue-400',
-    className
-  );
+  const id = useId();
 
   const classesInput = clsx(
     'peer h-10 w-full',
@@ -68,17 +45,13 @@ export const Input = ({
 
   return (
     <div className="group relative w-72 md:w-80 lg:w-96">
-      {label && (
-        <label className={classesLabel} htmlFor={id}>
-          {label}
-        </label>
-      )}
+      {label && <Label id={id}>{label}</Label>}
       <input
         className={classesInput}
         type="text"
         id={id}
-        value={inputValue}
-        onChange={handleInputChange}
+        defaultValue={value}
+        onChange={onChange}
         {...rest}
       />
       {helperText && <span className={classesHelperText}>{helperText}</span>}
