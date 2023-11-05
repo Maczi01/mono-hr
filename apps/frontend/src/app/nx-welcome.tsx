@@ -1,18 +1,10 @@
-/*
- * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- This is a starter component and can be deleted.
- * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- Delete this file and get started with your project!
- * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- */
-import {Input} from "@ems/common-ui";
+import { RegistrationForm } from './components/RegistrationForm';
 
-export function NxWelcome({title}: { title: string }) {
+export function NxWelcome({ title }: { title: string }) {
   return (
     <div className="wrapper">
       <div className="container">
-
-        <Input onValueChange={() => {console.log('v')}}/>
+        <RegistrationForm />
       </div>
     </div>
   );
