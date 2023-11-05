@@ -1,6 +1,6 @@
 import { RegistrationForm } from './components/RegistrationForm';
 
-export function NxWelcome({ title }: { title: string }) {
+export function NxWelcome() {
   return (
     <div className="wrapper">
       <div className="container">

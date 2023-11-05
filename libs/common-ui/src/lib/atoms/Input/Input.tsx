@@ -1,5 +1,5 @@
-import { ChangeEvent, forwardRef, useEffect, useId, useState } from 'react';
-import type { ComponentProps, ChangeEventHandler, Ref } from 'react';
+import { forwardRef, useId } from 'react';
+import type { ComponentProps, Ref } from 'react';
 import { clsx } from 'clsx';
 import { Label } from '../Label';
 
