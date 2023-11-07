@@ -4,7 +4,9 @@ import { ContactPage } from './pages/ContactPage';
 import { AboutPage } from './pages/AboutPage';
 import { HomePage } from './pages/HomePage';
 import { EmployeesPage } from './pages/EmployeesPage';
+import { RegistrationPage } from './pages/RegistrationPage';
 import { ROUTE } from '../routes';
+import { ProtectedRoute } from './components/ProtectedRoute';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,10 @@ const router = createBrowserRouter([
         element: <ContactPage />,
       },
       {
+        path: ROUTE.REGISTER,
+        element: <RegistrationPage />,
+      },
+      {
         path: ROUTE.ABOUT,
         element: <AboutPage />,
       },
@@ -25,7 +31,11 @@ const router = createBrowserRouter([
       },
       {
         path: ROUTE.EMPLOYEES,
-        element: <EmployeesPage />,
+        element: (
+          <ProtectedRoute>
+            <EmployeesPage />
+          </ProtectedRoute>
+        ),
       },
     ],
   },

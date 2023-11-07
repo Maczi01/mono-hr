@@ -8,7 +8,6 @@ export const Layout = () => {
       <Menu />
       <Outlet />
       <Footer />
-      <footer>Welcome to footer!</footer>
     </div>
   );
 };
