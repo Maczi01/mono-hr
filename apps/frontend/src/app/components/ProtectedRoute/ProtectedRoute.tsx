@@ -1,5 +1,4 @@
 import { Navigate } from 'react-router-dom';
-import { ROUTE } from '../../../routes';
 
 type Props = {
   user?: boolean;
