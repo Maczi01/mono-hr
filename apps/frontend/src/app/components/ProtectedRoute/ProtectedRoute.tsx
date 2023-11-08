@@ -7,9 +7,9 @@ type Props = {
 };
 
 export const ProtectedRoute = ({ children, user = false }: Props) => {
-  if (!user) {
+  if (user) {
     return children;
   }
 
-  return <Navigate to={ROUTE.REGISTER} />;
+  return <Navigate to="/register" />;
 };
