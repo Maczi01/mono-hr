@@ -14,10 +14,8 @@ export const EmployeesList = () => {
   const [list, setList] = useState<Employee[]>([]);
 
   useEffect(() => {
-    // fetch('https://randomuser.me/api/?results=10')
-    fetch('http://localhost:4200/api')
+    fetch('/api')
       .then((response) => {
-        console.log('response2: ', response);
         return response.json();
       })
       .then((data) => setList(data));
