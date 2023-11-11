@@ -10,7 +10,7 @@ import { ProtectedRoute } from './components/ProtectedRoute';
 import { useState } from 'react';
 
 export function App() {
-  const [user] = useState(false);
+  const [user] = useState(true);
   const router = createBrowserRouter([
     {
       path: '/',
