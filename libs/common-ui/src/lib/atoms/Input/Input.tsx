@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 import { Label } from '../Label';
 
 type InputProps = {
-  label?: string;
+  label: string;
   value?: string;
   className?: string;
   helperText?: string;

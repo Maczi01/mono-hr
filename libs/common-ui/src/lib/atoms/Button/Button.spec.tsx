@@ -9,11 +9,6 @@ const colors = {
 };
 
 describe('Button', () => {
-  it('should render successfully', () => {
-    render(<Button label={'Click me'} />);
-    expect(screen.getByText('Click me')).toBeInTheDocument();
-  });
-
   it('should apply background and text colors correctly', () => {
     const { rerender } = render(
       <Button label="Test" bgColor="emerald" color="amethyst" />
@@ -64,5 +59,14 @@ describe('Button', () => {
     const { container } = render(<Button label="Test" />);
     const result = await axe(container);
     expect(result).toHaveNoViolations();
+  });
+
+  it('should pass correct parameters on click', () => {
+    const handleClick = jest.fn();
+    const buttonId = 123;
+    render(<Button label="Click me" onClick={() => handleClick(buttonId)} />);
+    const button = screen.getByText('Click me');
+    fireEvent.click(button);
+    expect(handleClick).toHaveBeenCalledWith(buttonId);
   });
 });

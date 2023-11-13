@@ -7,7 +7,7 @@ type SelectProps = {
   onChange: (value: string) => void;
   selectClassName?: string;
   labelClassName?: string;
-  label?: string;
+  label: string;
   id: string;
 } & Omit<ComponentProps<'select'>, 'value' | 'onChange'>;
 
