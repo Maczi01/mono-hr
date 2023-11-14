@@ -11,12 +11,12 @@ describe('Input', () => {
 
   it('should accept and display input value', () => {
     const testValue = 'Test Value';
-    render(<Input value={testValue} />);
+    render(<Input value={testValue} label="label" />);
     expect(screen.getByDisplayValue(testValue)).toBeInTheDocument();
   });
 
   it('should have the correct class name', () => {
-    render(<Input />);
+    render(<Input label="label" />);
     const input = screen.getByRole('textbox');
     expect(input).toHaveClass(
       'peer h-10 w-full bg-gray-50 px-4 rounded-full border border-blue-200 font-thin outline-none drop-shadow-sm transition-all duration-200 ease-in-out'
@@ -25,20 +25,20 @@ describe('Input', () => {
 
   it('should display helper text when provided', () => {
     const helperText = 'Test Helper Text';
-    render(<Input helperText={helperText} />);
+    render(<Input helperText={helperText} label="label" />);
     expect(screen.getByText(helperText)).toBeInTheDocument();
   });
 
   it('should call onChange handler when input is changed', () => {
     const handleChange = jest.fn();
-    render(<Input onChange={handleChange} />);
+    render(<Input onChange={handleChange} label="label" />);
     const input = screen.getByRole('textbox');
     fireEvent.change(input, { target: { value: 'new value' } });
     expect(handleChange).toHaveBeenCalledTimes(1);
   });
 
   it('should pass accessibility test', async () => {
-    const { container } = render(<Input label={'label'} />);
+    const { container } = render(<Input label="label" />);
     const result = await axe(container);
     expect(result).toHaveNoViolations();
   });

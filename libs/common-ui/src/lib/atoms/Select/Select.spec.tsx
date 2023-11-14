@@ -8,7 +8,13 @@ describe('Select', () => {
 
   it('should render successfully with given options', () => {
     render(
-      <Select options={options} value="" onChange={onChange} id="test-select" />
+      <Select
+        options={options}
+        value=""
+        onChange={onChange}
+        id="test-select"
+        label="label"
+      />
     );
     options.forEach((option) => {
       expect(screen.getByText(option)).toBeInTheDocument();
@@ -22,6 +28,7 @@ describe('Select', () => {
         value={options[0]}
         onChange={onChange}
         id="test-select"
+        label="label"
       />
     );
     const select = screen.getByRole('combobox');
