@@ -1,7 +1,5 @@
 import { Header } from '@ems/common-ui';
-import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
 import { QUERY_KEYS } from '../../../utulities/queryKeys';
 import { getAllEmployees } from '../../apis/employees';
 
