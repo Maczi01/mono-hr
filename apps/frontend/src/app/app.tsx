@@ -5,7 +5,7 @@ import { AboutPage } from './pages/AboutPage';
 import { HomePage } from './pages/HomePage';
 import { EmployeesPage } from './pages/EmployeesPage';
 import { RegistrationPage } from './pages/RegistrationPage';
-import { ROUTE } from '../routes';
+import { ROUTE } from '../utulities/routes';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { useState } from 'react';
 

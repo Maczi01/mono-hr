@@ -2,6 +2,9 @@ import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 
 import App from './app/app';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient({});
 
 async function enableMocking() {
   if (process.env.NODE_ENV === 'prod') {
@@ -21,7 +24,9 @@ const root = ReactDOM.createRoot(
 enableMocking().then(() => {
   root.render(
     <StrictMode>
-      <App />
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
     </StrictMode>
   );
 });

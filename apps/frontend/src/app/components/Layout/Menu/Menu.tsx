@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ROUTE } from '../../../../routes';
+import { ROUTE } from '../../../../utulities/routes';
 import logo from '../Menu/logo.svg';
 import exit from '../Menu/exit.svg';
 

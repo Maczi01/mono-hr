@@ -1,5 +1,9 @@
 import { Header } from '@ems/common-ui';
 import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import { QUERY_KEYS } from '../../../utulities/queryKeys';
+import { getAllEmployees } from '../../apis/employees';
 
 type Employee = {
   id: number;
@@ -11,21 +15,16 @@ type Employee = {
 };
 
 export const EmployeesList = () => {
-  const [list, setList] = useState<Employee[]>([]);
-
-  useEffect(() => {
-    fetch('/api')
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => setList(data));
-  }, []);
+  const { data } = useQuery<Employee[]>({
+    queryKey: [QUERY_KEYS.EMPLOYEES],
+    queryFn: getAllEmployees,
+  });
 
   return (
     <div>
       <Header>Employees List</Header>
-      {list.length !== 0 ? (
-        list.map((employee) => {
+      {data?.length !== 0 ? (
+        data?.map((employee) => {
           return (
             <div key={employee.id}>
               <p>{employee.name.first}</p>
