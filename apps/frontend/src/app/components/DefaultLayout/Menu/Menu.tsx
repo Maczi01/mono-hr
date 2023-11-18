@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ROUTE } from '../../../../utulities/routes';
-import logo from '../Menu/logo.svg';
-import exit from '../Menu/exit.svg';
+import logo from './logo.svg';
+import exit from './exit.svg';
 
 export const Menu = () => {
   return (

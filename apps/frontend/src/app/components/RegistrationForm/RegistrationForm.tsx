@@ -1,29 +1,29 @@
 import { Button, Input } from '@ems/common-ui';
 import { FormEventHandler, useRef } from 'react';
+import { navigate } from '@storybook/addon-links';
+import { ROUTE } from '../../../utulities/routes';
+import { useNavigate } from 'react-router-dom';
 
 export const RegistrationForm = () => {
   const firstNameRef = useRef<HTMLInputElement>(null);
   const lastNameRef = useRef<HTMLInputElement>(null);
-  const ageRef = useRef<HTMLInputElement>(null);
-
+  const navigate = useNavigate();
   const handleSubmit: FormEventHandler = (event) => {
     event.preventDefault();
     console.log('First name: ', firstNameRef.current?.value);
     console.log('Last name: ', lastNameRef.current?.value);
-    console.log('Age: ', ageRef.current?.value);
+    navigate('/');
   };
 
   return (
-    <>
-      <div>
-        <span>User age: {}</span>
+    <form onSubmit={handleSubmit}>
+      <div className="flex flex-col justify-center items-center">
+        <Input id="email" label="E-mail" ref={firstNameRef} />
+        <Input id="password" label="Password" ref={lastNameRef} />
+        <div className="m-4">
+          <Button type="submit" label="Submit"></Button>
+        </div>
       </div>
-      <form onSubmit={handleSubmit}>
-        <Input id="firstName" label="First name" ref={firstNameRef} />
-        <Input id="lastName" label="Last name" ref={lastNameRef} />
-        <Input id="age" label="Age" ref={ageRef} type="number" />
-        <Button type="submit" label="Submit"></Button>
-      </form>
-    </>
+    </form>
   );
 };

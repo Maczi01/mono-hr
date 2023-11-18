@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Layout } from './components/Layout';
+import { DefaultLayout } from './components/DefaultLayout';
 import { ContactPage } from './pages/ContactPage';
 import { AboutPage } from './pages/AboutPage';
 import { HomePage } from './pages/HomePage';
@@ -14,15 +14,11 @@ export function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Layout />,
+      element: <DefaultLayout />,
       children: [
         {
           path: ROUTE.CONTACT,
           element: <ContactPage />,
-        },
-        {
-          path: ROUTE.REGISTER,
-          element: <RegistrationPage />,
         },
         {
           path: ROUTE.ABOUT,
@@ -41,6 +37,10 @@ export function App() {
           ),
         },
       ],
+    },
+    {
+      path: ROUTE.REGISTER,
+      element: <RegistrationPage />,
     },
   ]);
   return (

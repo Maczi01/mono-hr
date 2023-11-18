@@ -1,10 +1,10 @@
 import { RegistrationForm } from '../components/RegistrationForm';
+import { UnauthorizedLayout } from '../components/UnauthorizedLayout';
 
 export const RegistrationPage = () => {
   return (
-    <div>
-      <h1>Welcome to RegistrationPage!</h1>
+    <UnauthorizedLayout>
       <RegistrationForm />
-    </div>
+    </UnauthorizedLayout>
   );
 };
